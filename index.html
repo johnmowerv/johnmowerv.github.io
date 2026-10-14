@@ -74,6 +74,11 @@
     .project:nth-child(3) .project-visual { background:linear-gradient(135deg,#80602e,#d19a46); }
     .project:nth-child(4) .project-visual { background:linear-gradient(135deg,#214b43,#4a8c7c); }
     .project-body { padding:24px; }
+    .project-gallery { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:14px; background:#f0f4f8; }
+    .project-gallery figure { margin:0; min-width:0; }
+    .project-gallery img { display:block; width:100%; height:180px; object-fit:contain; background:#fff; border:1px solid var(--line); border-radius:10px; }
+    .project-gallery figcaption { color:var(--muted); font-size:.8rem; line-height:1.4; padding:6px 2px 0; }
+    @media (max-width:440px) { .project-gallery img { height:130px; } }
     .project-type { color:var(--blue); text-transform:uppercase; letter-spacing:.12em; font-size:.72rem; font-weight:850; }
     .project h3 { color:var(--navy); font-size:1.3rem; margin:7px 0 8px; }
     .project p { color:var(--muted); margin:0; }
@@ -174,7 +179,7 @@
       <div class="container">
         <div class="section-head">
           <div><div class="eyebrow">Selected work</div><h2>Engineering projects.</h2></div>
-          <p>These starter cards are ready for your own images, measurements, and project details. Replace the sample text with your completed work before publishing.</p>
+          <p>Selected mechanical design and research work, with CAD views that show both the overall mechanism and key component details.</p>
         </div>
         <div class="projects">
           <article class="card project">
@@ -188,13 +193,18 @@
             </div>
           </article>
           <article class="card project">
-            <div class="project-visual"><div class="visual-icon" aria-hidden="true">⚙</div></div>
+            <div class="project-gallery" aria-label="SolidWorks windshield wiper mechanism images">
+              <figure><img src="images/wiper-assembly.png" alt="SolidWorks assembly of a windshield wiper linkage driven by a worm and gear" loading="lazy"><figcaption>CAD assembly with linkage, gear drive, and motor</figcaption></figure>
+              <figure><img src="images/wiper-linkage-sketch.png" alt="Dimensioned linkage geometry sketch for a windshield wiper mechanism" loading="lazy"><figcaption>Dimensioned linkage geometry</figcaption></figure>
+              <figure><img src="images/worm-gear-detail.png" alt="Close-up CAD view of worm and gear teeth" loading="lazy"><figcaption>Worm-and-gear tooth detail</figcaption></figure>
+              <figure><img src="images/wiper-layout.png" alt="Alternate layout view of the windshield wiper mechanism assembly" loading="lazy"><figcaption>Alternate assembly layout view</figcaption></figure>
+            </div>
             <div class="project-body">
-              <div class="project-type">CAD & Mechanical Design</div>
-              <h3>CAD Design Project</h3>
-              <p>Showcase a mechanical part, assembly, or mechanism designed using a CAD tool such as SolidWorks, Fusion 360, or Onshape.</p>
-              <ul><li>Explain design requirements and constraints</li><li>Include CAD renders and engineering drawings</li><li>Describe material and component selection</li></ul>
-              <div class="tag-list"><span class="tag">3D Modeling</span><span class="tag">Drawings</span><span class="tag">Design</span></div>
+              <div class="project-type">SolidWorks · Mechanical Design</div>
+              <h3>Windshield Wiper Linkage Mechanism</h3>
+              <p>Designed a CAD concept for a windshield wiper mechanism using a four-bar linkage and a worm-and-gear drive. The model combines linkage geometry with a geared drive to convert motor rotation into oscillating wiper motion.</p>
+              <ul><li>Developed and dimensioned linkage geometry in CAD</li><li>Modeled an assembly with a motor-driven worm and gear</li><li>Considered gear ratio and linkage motion to achieve the desired sweep</li></ul>
+              <div class="tag-list"><span class="tag">SolidWorks</span><span class="tag">Four-Bar Linkage</span><span class="tag">Worm Gear</span><span class="tag">Assembly Design</span></div>
             </div>
           </article>
           <article class="card project">
@@ -269,7 +279,7 @@
           <p>Interested in engineering internships, research opportunities, or collaborating on a project? Reach out.</p>
         </div>
         <div class="contact-box">
-          <div><h3 style="margin:0;">John Mower</h3><p>Mechanical Engineering Student · Clemson University</p><p style="font-size:.9rem;">Replace the links with your actual contact information before publishing.</p></div>
+          <div><h3 style="margin:0;">John Mower</h3><p>Mechanical Engineering Student · Clemson University</p><p style="font-size:.9rem;">Open to mechanical engineering internships, design projects, and research opportunities.</p></div>
           <div class="actions">
             <a class="btn primary" href="mailto:johnmowerv@gmail.com">Email me</a>
             <a class="btn secondary" href="tel:+18036364838">Call me</a>
