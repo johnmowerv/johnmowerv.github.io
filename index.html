@@ -78,6 +78,9 @@
     .project-gallery figure { margin:0; min-width:0; }
     .project-gallery img { display:block; width:100%; height:180px; object-fit:contain; background:#fff; border:1px solid var(--line); border-radius:10px; }
     .project-gallery figcaption { color:var(--muted); font-size:.8rem; line-height:1.4; padding:6px 2px 0; }
+    .project-gallery.three-up { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .project-gallery.three-up img { height:155px; }
+    @media (max-width:560px) { .project-gallery.three-up { grid-template-columns:1fr 1fr; } .project-gallery.three-up img { height:130px; } }
     @media (max-width:440px) { .project-gallery img { height:130px; } }
     .project-type { color:var(--blue); text-transform:uppercase; letter-spacing:.12em; font-size:.72rem; font-weight:850; }
     .project h3 { color:var(--navy); font-size:1.3rem; margin:7px 0 8px; }
@@ -205,6 +208,22 @@
               <p>Designed a CAD concept for a windshield wiper mechanism using a four-bar linkage and a worm-and-gear drive. The model combines linkage geometry with a geared drive to convert motor rotation into oscillating wiper motion.</p>
               <ul><li>Developed and dimensioned linkage geometry in CAD</li><li>Modeled an assembly with a motor-driven worm and gear</li><li>Considered gear ratio and linkage motion to achieve the desired sweep</li></ul>
               <div class="tag-list"><span class="tag">SolidWorks</span><span class="tag">Four-Bar Linkage</span><span class="tag">Worm Gear</span><span class="tag">Assembly Design</span></div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="project-gallery" aria-label="Rankine cycle power plant design and sensitivity analysis images">
+              <figure><img src="images/rankine-system-schematic.png" alt="Schematic of interconnected water and ammonia Rankine cycle loops" loading="lazy"><figcaption>Water and ammonia loop schematic</figcaption></figure>
+              <figure><img src="images/rankine-component-budget.png" alt="Equipment selection and estimated component budget table" loading="lazy"><figcaption>Equipment selection and budget</figcaption></figure>
+              <figure><img src="images/rankine-ts-diagram.png" alt="Temperature entropy diagram for the water Rankine cycle" loading="lazy"><figcaption>Water-loop temperature–entropy diagram</figcaption></figure>
+              <figure><img src="images/rankine-condenser-pressure-analysis.png" alt="Sensitivity table showing performance versus condenser pressure" loading="lazy"><figcaption>Condenser-pressure sensitivity</figcaption></figure>
+              <figure><img src="images/rankine-boiler-temperature-analysis.png" alt="Sensitivity table showing performance versus boiler temperature" loading="lazy"><figcaption>Boiler-temperature sensitivity</figcaption></figure>
+            </div>
+            <div class="project-body">
+              <div class="project-type">Thermodynamics · System Design · Sensitivity Analysis</div>
+              <h3>Rankine Cycle Power Plant Design and Optimization</h3>
+              <p>Designed and evaluated a power-plant concept using interconnected water and ammonia loops. Compared equipment choices and operating conditions to study thermodynamic performance while respecting a specified equipment budget.</p>
+              <ul><li>Developed a system schematic connecting turbines, pumps, boilers, condensers, and a heat exchanger</li><li>Compared component options and documented an estimated equipment total of $475,000</li><li>Performed sensitivity analysis on condenser pressure and boiler temperature, tracking thermal efficiency, net specific work, and back-work ratio</li><li>Used a temperature–entropy (T–s) diagram to visualize the water-loop cycle</li></ul>
+              <div class="tag-list"><span class="tag">Thermodynamics</span><span class="tag">Rankine Cycle</span><span class="tag">Sensitivity Analysis</span><span class="tag">Cost Trade-offs</span></div>
             </div>
           </article>
           <article class="card project">
