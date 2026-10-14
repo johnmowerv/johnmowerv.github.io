@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mechanical engineering portfolio showcasing undergraduate projects, research, CAD, and technical skills.">
+  <title>John Mower | Mechanical Engineering Portfolio</title>
+  <style>
+    :root {
+      --navy: #10243a;
+      --blue: #245b87;
+      --sky: #e9f2f9;
+      --ink: #1d2935;
+      --muted: #5c6b79;
+      --line: #dbe3ea;
+      --paper: #ffffff;
+      --bg: #f5f8fb;
+      --accent: #d99a35;
+      --radius: 18px;
+      --shadow: 0 12px 32px rgba(16, 36, 58, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:72px; gap:24px; }
+    .brand { font-weight:800; letter-spacing:-.03em; color:var(--navy); font-size:1.05rem; }
+    .brand span { color:var(--blue); }
+    nav { display:flex; gap:24px; flex-wrap:wrap; }
+    nav a { font-size:.92rem; font-weight:650; color:var(--muted); }
+    .hero { padding:86px 0 72px; background:linear-gradient(135deg,#edf5fb 0%,#fff 58%,#f8f3e9 100%); border-bottom:1px solid var(--line); }
+    .hero-grid { display:grid; grid-template-columns:1.4fr .8fr; align-items:center; gap:56px; }
+    .eyebrow { color:var(--blue); font-weight:800; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { color:var(--navy); font-size:clamp(2.6rem,6vw,4.8rem); line-height:1.04; letter-spacing:-.055em; margin:14px 0 20px; }
+    .hero p { color:var(--muted); font-size:1.12rem; max-width:660px; margin:0 0 28px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; font-weight:750; border:1px solid var(--navy); transition:transform .2s, box-shadow .2s; }
+    .btn:hover { text-decoration:none; transform:translateY(-2px); box-shadow:var(--shadow); }
+    .btn.primary { background:var(--navy); color:white; }
+    .btn.secondary { background:white; color:var(--navy); }
+    .hero-panel { background:var(--navy); color:white; border-radius:24px; padding:28px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .hero-panel:after { content:""; position:absolute; width:210px;height:210px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-70px;top:-70px;box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 56px rgba(255,255,255,.025); }
+    .panel-label { color:#b9d4e9; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; font-weight:800; }
+    .hero-panel h2 { font-size:1.45rem; line-height:1.25; margin:10px 0 22px; position:relative; z-index:1; }
+    .stat { display:flex; justify-content:space-between; gap:20px; border-top:1px solid rgba(255,255,255,.18); padding:12px 0; color:#e0eaf2; font-size:.92rem; }
+    .stat strong { color:white; text-align:right; }
+    section { padding:76px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:30px; }
+    .section-head h2 { margin:5px 0 0; font-size:clamp(1.8rem,4vw,2.6rem); color:var(--navy); letter-spacing:-.04em; line-height:1.15; }
+    .section-head p { max-width:510px; color:var(--muted); margin:0; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:0 4px 18px rgba(16,36,58,.025); }
+    .card h3 { color:var(--navy); margin:0 0 10px; font-size:1.15rem; }
+    .card p { margin:0; color:var(--muted); }
+    .tag-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+    .tag { background:var(--sky); color:var(--blue); padding:6px 10px; border-radius:999px; font-size:.8rem; font-weight:750; }
+    .projects { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .project { padding:0; overflow:hidden; }
+    .project-visual { min-height:190px; display:flex; align-items:center; justify-content:center; padding:24px; color:white; background:linear-gradient(135deg,#173651,#3678a5); position:relative; overflow:hidden; }
+    .project-visual:before,.project-visual:after { content:""; position:absolute; border:1px solid rgba(255,255,255,.22); border-radius:50%; width:230px;height:230px; }
+    .project-visual:after { width:155px;height:155px; }
+    .visual-icon { font-size:3.2rem; position:relative; z-index:1; filter:drop-shadow(0 5px 8px rgba(0,0,0,.15)); }
+    .project:nth-child(2) .project-visual { background:linear-gradient(135deg,#32414c,#697e8e); }
+    .project:nth-child(3) .project-visual { background:linear-gradient(135deg,#80602e,#d19a46); }
+    .project:nth-child(4) .project-visual { background:linear-gradient(135deg,#214b43,#4a8c7c); }
+    .project-body { padding:24px; }
+    .project-type { color:var(--blue); text-transform:uppercase; letter-spacing:.12em; font-size:.72rem; font-weight:850; }
+    .project h3 { color:var(--navy); font-size:1.3rem; margin:7px 0 8px; }
+    .project p { color:var(--muted); margin:0; }
+    .project ul { color:var(--muted); padding-left:19px; margin:14px 0 0; }
+    .project-note { background:#fff8e9; border:1px solid #f0dfba; border-radius:12px; padding:14px 16px; color:#70531d; font-size:.9rem; margin-top:18px; }
+    .skills-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .skill { background:white; border:1px solid var(--line); border-radius:14px; padding:20px; }
+    .skill .icon { font-size:1.35rem; }
+    .skill h3 { color:var(--navy); margin:8px 0 5px; font-size:1rem; }
+    .skill p { color:var(--muted); font-size:.9rem; margin:0; }
+    .contact { background:var(--navy); color:white; }
+    .contact .section-head h2 { color:white; }
+    .contact .section-head p { color:#d0dce6; }
+    .contact-box { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:28px; border:1px solid rgba(255,255,255,.18); border-radius:var(--radius); background:rgba(255,255,255,.05); }
+    .contact-box p { color:#d0dce6; margin:4px 0 0; }
+    .contact .btn.primary { background:white; color:var(--navy); border-color:white; }
+    .contact .btn.secondary { background:transparent; color:white; border-color:rgba(255,255,255,.45); }
+    footer { background:#0b1a2a; color:#b8c6d2; padding:22px 0; font-size:.85rem; }
+    footer .container { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    @media (max-width: 760px) {
+      .nav { padding:14px 0; align-items:flex-start; flex-direction:column; gap:10px; }
+      nav { gap:14px; }
+      .hero { padding:58px 0; }
+      .hero-grid,.about-grid,.projects { grid-template-columns:1fr; }
+      .hero-grid { gap:30px; }
+      .section-head { align-items:flex-start; flex-direction:column; }
+      .skills-grid { grid-template-columns:1fr 1fr; }
+      .contact-box { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width: 440px) {
+      .container { width:min(100% - 28px,1120px); }
+      .skills-grid { grid-template-columns:1fr; }
+      nav a { font-size:.84rem; }
+      .card,.project-body { padding:20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">JOHN MOWER<span> / ENGINEERING</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Mechanical Engineering Portfolio</div>
+          <h1>Turning engineering ideas into practical solutions.</h1>
+          <p>I'm a mechanical engineering student at Clemson University interested in mechanical design, experimental research, manufacturing, and solving real-world engineering problems.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my projects ↓</a>
+            <a class="btn secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Portfolio focus areas">
+          <div class="panel-label">Portfolio focus</div>
+          <h2>Design. Test. Analyze. Improve.</h2>
+          <div class="stat"><span>Education</span><strong>Clemson University</strong></div>
+          <div class="stat"><span>Discipline</span><strong>Mechanical Engineering</strong></div>
+          <div class="stat"><span>Interests</span><strong>Design & Research</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">About me</div><h2>Curious by design.</h2></div>
+          <p>This portfolio documents the process behind my work—from defining an engineering problem to evaluating results and identifying improvements.</p>
+        </div>
+        <div class="about-grid">
+          <article class="card">
+            <h3>My approach</h3>
+            <p>I enjoy combining engineering fundamentals with practical problem-solving. I aim to understand why a design or process behaves the way it does, validate ideas with analysis or testing, and communicate results clearly.</p>
+          </article>
+          <article class="card">
+            <h3>What you'll find here</h3>
+            <p>Selected coursework, undergraduate research, CAD concepts, simulations, laboratory work, and hands-on projects. Each project page can include objectives, methods, calculations, results, and lessons learned.</p>
+            <div class="tag-list">
+              <span class="tag">Mechanical Design</span><span class="tag">Research</span><span class="tag">CAD</span><span class="tag">Data Analysis</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" style="background:#edf3f8;">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Selected work</div><h2>Engineering projects.</h2></div>
+          <p>These starter cards are ready for your own images, measurements, and project details. Replace the sample text with your completed work before publishing.</p>
+        </div>
+        <div class="projects">
+          <article class="card project">
+            <div class="project-visual"><div class="visual-icon" aria-hidden="true">◉</div></div>
+            <div class="project-body">
+              <div class="project-type">Undergraduate Research</div>
+              <h3>Laser Surface Structuring</h3>
+              <p>Investigating how laser-based surface texturing can change material surface behavior and support the development of hydrophobic surfaces.</p>
+              <ul><li>Document laser processing conditions approved for sharing</li><li>Compare droplet contact angles across surface treatments</li><li>Present images, plots, and experimental observations</li></ul>
+              <div class="tag-list"><span class="tag">Experimental Testing</span><span class="tag">Materials</span><span class="tag">Data Analysis</span></div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="project-visual"><div class="visual-icon" aria-hidden="true">⚙</div></div>
+            <div class="project-body">
+              <div class="project-type">CAD & Mechanical Design</div>
+              <h3>CAD Design Project</h3>
+              <p>Showcase a mechanical part, assembly, or mechanism designed using a CAD tool such as SolidWorks, Fusion 360, or Onshape.</p>
+              <ul><li>Explain design requirements and constraints</li><li>Include CAD renders and engineering drawings</li><li>Describe material and component selection</li></ul>
+              <div class="tag-list"><span class="tag">3D Modeling</span><span class="tag">Drawings</span><span class="tag">Design</span></div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="project-visual"><div class="visual-icon" aria-hidden="true">⌁</div></div>
+            <div class="project-body">
+              <div class="project-type">Personal Design Project</div>
+              <h3>RC Car / Mechanism Design</h3>
+              <p>Document a design build with mechanical components, drivetrain decisions, suspension geometry, and prototyping where applicable.</p>
+              <ul><li>Show assembly views and part details</li><li>Explain key calculations and design trade-offs</li><li>Compare the concept with the physical prototype</li></ul>
+              <div class="tag-list"><span class="tag">Mechanisms</span><span class="tag">3D Printing</span><span class="tag">Prototyping</span></div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="project-visual"><div class="visual-icon" aria-hidden="true">▤</div></div>
+            <div class="project-body">
+              <div class="project-type">Coursework / Laboratory</div>
+              <h3>Thermal-Fluids Lab Analysis</h3>
+              <p>Present an experiment or analysis involving thermodynamics, heat transfer, fluid mechanics, or system performance.</p>
+              <ul><li>Describe the setup and assumptions</li><li>Show equations and labeled plots</li><li>Discuss uncertainty and sources of error</li></ul>
+              <div class="tag-list"><span class="tag">Thermodynamics</span><span class="tag">MATLAB</span><span class="tag">Technical Reporting</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="project-note"><strong>Before publishing:</strong> Replace generic project descriptions with your actual contributions and results. Remove any project that you have not started, and get approval before sharing confidential or unpublished research details.</div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Technical toolkit</div><h2>Skills & methods.</h2></div>
+          <p>Keep this section accurate to your current experience. Add proficiency levels or examples only where you can confidently discuss them in an interview.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill"><div class="icon">▱</div><h3>CAD & Design</h3><p>3D modeling, assemblies, drawings, and design iteration.</p></article>
+          <article class="skill"><div class="icon">∑</div><h3>Engineering Analysis</h3><p>Mechanics, thermodynamics, fluids, and engineering calculations.</p></article>
+          <article class="skill"><div class="icon">⌘</div><h3>Programming & Data</h3><p>MATLAB, plotting, data processing, and computational methods as applicable.</p></article>
+          <article class="skill"><div class="icon">⌕</div><h3>Experimental Research</h3><p>Test planning, measurement, observation, and interpretation of results.</p></article>
+          <article class="skill"><div class="icon">⚒</div><h3>Hands-on Work</h3><p>Prototyping, manufacturing exposure, equipment, and practical problem-solving.</p></article>
+          <article class="skill"><div class="icon">▤</div><h3>Communication</h3><p>Technical reports, presentations, documentation, and teamwork.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow" style="color:#b9d4e9;">Contact</div><h2>Let's connect.</h2></div>
+          <p>Interested in engineering internships, research opportunities, or collaborating on a project? Reach out.</p>
+        </div>
+        <div class="contact-box">
+          <div><h3 style="margin:0;">John Mower</h3><p>Mechanical Engineering Student · Clemson University</p><p style="font-size:.9rem;">Replace the links with your actual contact information before publishing.</p></div>
+          <div class="actions">
+            <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email me</a>
+            <a class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container"><span>© <span id="year"></span> John Mower · Engineering Portfolio</span><span>Built with HTML & CSS · Hosted with GitHub Pages</span></div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
